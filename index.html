@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran Pengujian Jaringan Kabel & Nirkabel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .slide-in { animation: slideIn 0.3s ease-out; }
+        @keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+        .pulse-animation { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .network-animation { animation: networkPulse 3s infinite; }
+        @keyframes networkPulse { 0%, 100% { stroke-dasharray: 5,5; } 50% { stroke-dasharray: 10,2; } }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <h1 class="text-2xl font-bold text-indigo-600">📡 Pengujian Jaringan</h1>
+                <div class="flex space-x-4">
+                    <button onclick="showPage('materi')" id="btn-materi" class="px-4 py-2 rounded-lg bg-indigo-600 text-white font-medium">Materi</button>
+                    <button onclick="showPage('simulasi')" id="btn-simulasi" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 font-medium hover:bg-gray-300">Simulasi</button>
+                    <button onclick="showPage('quiz')" id="btn-quiz" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-700 font-medium hover:bg-gray-300">Quiz</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page 1: Materi -->
+    <div id="page-materi" class="page-content">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">📚 Materi Pembelajaran</h2>
+                    <p class="text-lg text-gray-600">Pengujian Jaringan Kabel & Nirkabel</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Tujuan Pembelajaran -->
+                    <div class="bg-blue-50 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">🎯 Tujuan Pembelajaran</h3>
+                        <p class="text-gray-700">Peserta didik mampu memahami dan menguasai materi pengujian jaringan kabel & nirkabel serta menerapkannya dalam praktik sesuai standar yang berlaku.</p>
+                    </div>
+
+                    <!-- Indikator -->
+                    <div class="bg-green-50 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">📋 Indikator Pencapaian</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>✓ Menjelaskan konsep pengujian jaringan</li>
+                            <li>✓ Melaksanakan langkah pengujian</li>
+                            <li>✓ Mengevaluasi hasil pengujian</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Konten Materi -->
+                <div class="mt-8 space-y-6">
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-purple-800 mb-4">🔍 Konsep Pengujian Jaringan</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-lg mb-3">Pengujian Jaringan Kabel</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>• <strong>Continuity Test:</strong> Memastikan koneksi fisik</li>
+                                    <li>• <strong>Wire Map Test:</strong> Verifikasi urutan kabel</li>
+                                    <li>• <strong>Length Test:</strong> Mengukur panjang kabel</li>
+                                    <li>• <strong>Attenuation Test:</strong> Pengujian redaman sinyal</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-3">Pengujian Jaringan Nirkabel</h4>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li>• <strong>Signal Strength:</strong> Kekuatan sinyal RF</li>
+                                    <li>• <strong>Coverage Test:</strong> Area jangkauan</li>
+                                    <li>• <strong>Throughput Test:</strong> Kecepatan transfer data</li>
+                                    <li>• <strong>Interference Test:</strong> Gangguan frekuensi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-orange-800 mb-4">🛠️ Tools Pengujian</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white rounded-lg p-4 shadow-md">
+                                <h4 class="font-semibold mb-2">Cable Tester</h4>
+                                <p class="text-sm text-gray-600">Untuk pengujian kabel UTP/STP</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 shadow-md">
+                                <h4 class="font-semibold mb-2">Network Analyzer</h4>
+                                <p class="text-sm text-gray-600">Analisis performa jaringan</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4 shadow-md">
+                                <h4 class="font-semibold mb-2">WiFi Analyzer</h4>
+                                <p class="text-sm text-gray-600">Pengujian jaringan wireless</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg p-6">
+                        <h3 class="text-2xl font-bold text-indigo-800 mb-4">📊 Standar Pengujian</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full bg-white rounded-lg shadow-md">
+                                <thead class="bg-indigo-600 text-white">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left">Parameter</th>
+                                        <th class="px-4 py-3 text-left">Standar Kabel</th>
+                                        <th class="px-4 py-3 text-left">Standar Nirkabel</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-4 py-3 font-medium">Bandwidth</td>
+                                        <td class="px-4 py-3">Cat5e: 100MHz, Cat6: 250MHz</td>
+                                        <td class="px-4 py-3">2.4GHz, 5GHz</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 font-medium">Jarak Maksimal</td>
+                                        <td class="px-4 py-3">100 meter</td>
+                                        <td class="px-4 py-3">Indoor: 30m, Outdoor: 100m</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 font-medium">Kecepatan</td>
+                                        <td class="px-4 py-3">10/100/1000 Mbps</td>
+                                        <td class="px-4 py-3">54Mbps - 6.9Gbps</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <button onclick="showPage('simulasi')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-medium transition-colors pulse-animation">
+                        Lanjut ke Simulasi 🚀
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Simulasi -->
+    <div id="page-simulasi" class="page-content hidden">
+        <div class="max-w-6xl mx-auto px-4 py-8">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">🔬 Simulasi Pengujian Jaringan</h2>
+                    <p class="text-lg text-gray-600">Studi Kasus: Troubleshooting Jaringan Kantor</p>
+                </div>
+
+                <!-- Scenario -->
+                <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
+                    <h3 class="text-xl font-bold text-red-800 mb-3">🚨 Skenario Masalah</h3>
+                    <p class="text-gray-700">Sebuah kantor mengalami masalah koneksi internet yang lambat dan sering terputus. Beberapa komputer tidak dapat terhubung ke jaringan. Anda diminta untuk melakukan pengujian dan troubleshooting.</p>
+                </div>
+
+                <!-- Network Diagram -->
+                <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">🗺️ Diagram Jaringan</h3>
+                    <div class="flex justify-center">
+                        <svg width="600" height="300" viewBox="0 0 600 300" class="border rounded-lg bg-white">
+                            <!-- Internet -->
+                            <circle cx="50" cy="50" r="30" fill="#3B82F6" stroke="#1E40AF" stroke-width="2"/>
+                            <text x="50" y="55" text-anchor="middle" fill="white" font-size="12">Internet</text>
+                            
+                            <!-- Router -->
+                            <rect x="150" y="30" width="60" height="40" fill="#10B981" stroke="#059669" stroke-width="2" rx="5"/>
+                            <text x="180" y="52" text-anchor="middle" fill="white" font-size="12">Router</text>
+                            
+                            <!-- Switch -->
+                            <rect x="300" y="30" width="60" height="40" fill="#F59E0B" stroke="#D97706" stroke-width="2" rx="5"/>
+                            <text x="330" y="52" text-anchor="middle" fill="white" font-size="12">Switch</text>
+                            
+                            <!-- Access Point -->
+                            <rect x="450" y="30" width="60" height="40" fill="#8B5CF6" stroke="#7C3AED" stroke-width="2" rx="5"/>
+                            <text x="480" y="52" text-anchor="middle" fill="white" font-size="12">WiFi AP</text>
+                            
+                            <!-- Computers -->
+                            <rect x="250" y="150" width="50" height="40" fill="#6B7280" stroke="#374151" stroke-width="2" rx="5"/>
+                            <text x="275" y="172" text-anchor="middle" fill="white" font-size="10">PC1</text>
+                            
+                            <rect x="320" y="150" width="50" height="40" fill="#6B7280" stroke="#374151" stroke-width="2" rx="5"/>
+                            <text x="345" y="172" text-anchor="middle" fill="white" font-size="10">PC2</text>
+                            
+                            <rect x="390" y="150" width="50" height="40" fill="#EF4444" stroke="#DC2626" stroke-width="2" rx="5"/>
+                            <text x="415" y="172" text-anchor="middle" fill="white" font-size="10">PC3</text>
+                            
+                            <!-- Wireless Device -->
+                            <circle cx="500" cy="170" r="25" fill="#EC4899" stroke="#DB2777" stroke-width="2"/>
+                            <text x="500" y="175" text-anchor="middle" fill="white" font-size="10">Laptop</text>
+                            
+                            <!-- Connections -->
+                            <line x1="80" y1="50" x2="150" y2="50" stroke="#374151" stroke-width="2" class="network-animation"/>
+                            <line x1="210" y1="50" x2="300" y2="50" stroke="#374151" stroke-width="2" class="network-animation"/>
+                            <line x1="360" y1="50" x2="450" y2="50" stroke="#374151" stroke-width="2" class="network-animation"/>
+                            <line x1="330" y1="70" x2="275" y2="150" stroke="#374151" stroke-width="2"/>
+                            <line x1="330" y1="70" x2="345" y2="150" stroke="#374151" stroke-width="2"/>
+                            <line x1="330" y1="70" x2="415" y2="150" stroke="#EF4444" stroke-width="3" stroke-dasharray="5,5"/>
+                            <line x1="480" y1="70" x2="500" y2="145" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+                        </svg>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2 text-center">🔴 Garis merah menunjukkan koneksi bermasalah</p>
+                </div>
+
+                <!-- Interactive Testing -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Testing Tools -->
+                    <div class="bg-blue-50 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">🛠️ Pilih Tool Pengujian</h3>
+                        <div class="space-y-3">
+                            <button onclick="selectTool('cable')" id="tool-cable" class="w-full p-3 bg-white border-2 border-gray-300 rounded-lg hover:border-blue-500 transition-colors text-left">
+                                <strong>Cable Tester</strong><br>
+                                <span class="text-sm text-gray-600">Untuk pengujian kabel UTP</span>
+                            </button>
+                            <button onclick="selectTool('network')" id="tool-network" class="w-full p-3 bg-white border-2 border-gray-300 rounded-lg hover:border-blue-500 transition-colors text-left">
+                                <strong>Network Analyzer</strong><br>
+                                <span class="text-sm text-gray-600">Untuk analisis traffic jaringan</span>
+                            </button>
+                            <button onclick="selectTool('wifi')" id="tool-wifi" class="w-full p-3 bg-white border-2 border-gray-300 rounded-lg hover:border-blue-500 transition-colors text-left">
+                                <strong>WiFi Analyzer</strong><br>
+                                <span class="text-sm text-gray-600">Untuk pengujian sinyal wireless</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Test Results -->
+                    <div class="bg-green-50 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-green-800 mb-4">📊 Hasil Pengujian</h3>
+                        <div id="test-results" class="space-y-3">
+                            <p class="text-gray-600">Pilih tool pengujian untuk melihat hasil...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testing Steps -->
+                <div class="mt-8 bg-yellow-50 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-4">📋 Langkah Pengujian</h3>
+                    <div id="testing-steps" class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                            <span class="text-gray-600">Pilih tool pengujian yang sesuai</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                            <span class="text-gray-600">Analisis hasil pengujian</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                            <span class="text-gray-600">Tentukan solusi yang tepat</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution -->
+                <div id="solution-section" class="mt-8 bg-purple-50 rounded-lg p-6 hidden">
+                    <h3 class="text-xl font-bold text-purple-800 mb-4">💡 Solusi Masalah</h3>
+                    <div id="solution-content"></div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <button onclick="showPage('quiz')" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+                        Lanjut ke Quiz 📝
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Quiz -->
+    <div id="page-quiz" class="page-content hidden">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+                <!-- Quiz Header -->
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">📝 Quiz Pengujian Jaringan</h2>
+                    <p class="text-lg text-gray-600">Uji pemahaman Anda tentang materi yang telah dipelajari</p>
+                </div>
+
+                <!-- Quiz Login -->
+                <div id="quiz-login" class="max-w-md mx-auto">
+                    <div class="bg-blue-50 rounded-lg p-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">🔐 Masuk Quiz</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                                <input type="text" id="student-name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Masukkan nama Anda">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Password Quiz</label>
+                                <input type="password" id="quiz-password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Masukkan password">
+                            </div>
+                            <button onclick="startQuiz()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium transition-colors">
+                                Mulai Quiz
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Content -->
+                <div id="quiz-content" class="hidden">
+                    <!-- Quiz Info -->
+                    <div class="flex justify-between items-center mb-6 p-4 bg-gray-50 rounded-lg">
+                        <div>
+                            <span class="text-sm text-gray-600">Peserta: </span>
+                            <span id="quiz-student-name" class="font-medium"></span>
+                        </div>
+                        <div>
+                            <span class="text-sm text-gray-600">Waktu: </span>
+                            <span id="quiz-timer" class="font-bold text-red-600">00:00</span>
+                        </div>
+                        <div>
+                            <span class="text-sm text-gray-600">Soal: </span>
+                            <span id="question-counter" class="font-medium">1/10</span>
+                        </div>
+                    </div>
+
+                    <!-- Question -->
+                    <div id="question-container" class="mb-6">
+                        <div class="bg-blue-50 rounded-lg p-6 mb-4">
+                            <h3 class="text-lg font-bold text-blue-800 mb-3" id="question-text"></h3>
+                            <div id="question-options" class="space-y-3"></div>
+                        </div>
+                        <div class="flex justify-between">
+                            <button onclick="previousQuestion()" id="prev-btn" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors" disabled>
+                                ← Sebelumnya
+                            </button>
+                            <button onclick="nextQuestion()" id="next-btn" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                Selanjutnya →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Results -->
+                <div id="quiz-results" class="hidden text-center">
+                    <div class="bg-green-50 rounded-lg p-8">
+                        <h3 class="text-2xl font-bold text-green-800 mb-4">🎉 Quiz Selesai!</h3>
+                        <div class="text-6xl mb-4" id="score-emoji">🎯</div>
+                        <p class="text-xl mb-2">Skor Anda: <span id="final-score" class="font-bold text-green-600"></span></p>
+                        <p class="text-gray-600 mb-6" id="score-message"></p>
+                        <button onclick="resetQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+                            Ulangi Quiz
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global Variables
+        let currentPage = 'materi';
+        let selectedTool = null;
+        let currentQuestion = 0;
+        let quizAnswers = [];
+        let quizStartTime = null;
+        let quizTimer = null;
+        let timeLimit = 30; // Default 30 seconds per question
+        let quizPassword = 'jaringan123'; // Default password
+        
+        // Google Apps Script URL - UPDATED
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzIENkcUg_YOIB67Z7h2pZSr0_l9gif-qvijrLZJ0AfXPPOJQQX45pic8bVnzRKnPlS/exec';
+
+        // Quiz Questions
+        const quizQuestions = [
+            {
+                question: "Apa fungsi utama dari Cable Tester dalam pengujian jaringan kabel?",
+                options: [
+                    "Mengukur kecepatan internet",
+                    "Memverifikasi koneksi fisik dan urutan kabel",
+                    "Menganalisis traffic jaringan",
+                    "Mengukur kekuatan sinyal WiFi"
+                ],
+                correct: 1
+            },
+            {
+                question: "Berdasarkan simulasi, apa penyebab utama PC3 tidak dapat terhubung ke jaringan?",
+                options: [
+                    "Masalah pada router",
+                    "Kabel UTP putus atau salah urutan",
+                    "Konfigurasi IP salah",
+                    "Switch rusak"
+                ],
+                correct: 1
+            },
+            {
+                question: "Standar jarak maksimal untuk kabel UTP Cat5e adalah:",
+                options: [
+                    "50 meter",
+                    "75 meter", 
+                    "100 meter",
+                    "150 meter"
+                ],
+                correct: 2
+            },
+            {
+                question: "Tool apa yang paling tepat untuk menganalisis interferensi pada jaringan wireless?",
+                options: [
+                    "Cable Tester",
+                    "Network Analyzer",
+                    "WiFi Analyzer",
+                    "Multimeter"
+                ],
+                correct: 2
+            },
+            {
+                question: "Frekuensi yang umum digunakan pada jaringan WiFi adalah:",
+                options: [
+                    "1.8 GHz dan 3.6 GHz",
+                    "2.4 GHz dan 5 GHz",
+                    "900 MHz dan 1.8 GHz",
+                    "5 GHz dan 6 GHz"
+                ],
+                correct: 1
+            },
+            {
+                question: "Dalam pengujian kabel, apa yang dimaksud dengan 'Wire Map Test'?",
+                options: [
+                    "Mengukur panjang kabel",
+                    "Mengukur redaman sinyal",
+                    "Memverifikasi urutan pin kabel",
+                    "Mengukur resistansi kabel"
+                ],
+                correct: 2
+            },
+            {
+                question: "Berdasarkan diagram jaringan pada simulasi, perangkat mana yang berfungsi sebagai penghubung ke internet?",
+                options: [
+                    "Switch",
+                    "Access Point",
+                    "Router",
+                    "Hub"
+                ],
+                correct: 2
+            },
+            {
+                question: "Apa parameter utama yang diukur dalam pengujian throughput jaringan wireless?",
+                options: [
+                    "Kekuatan sinyal",
+                    "Kecepatan transfer data",
+                    "Jangkauan area",
+                    "Jumlah interferensi"
+                ],
+                correct: 1
+            },
+            {
+                question: "Solusi yang tepat untuk mengatasi masalah koneksi PC3 pada simulasi adalah:",
+                options: [
+                    "Restart router",
+                    "Ganti kabel UTP dan periksa crimping",
+                    "Update driver network",
+                    "Reset switch"
+                ],
+                correct: 1
+            },
+            {
+                question: "Dalam troubleshooting jaringan, langkah pertama yang harus dilakukan adalah:",
+                options: [
+                    "Ganti semua perangkat",
+                    "Restart semua komputer",
+                    "Identifikasi dan isolasi masalah",
+                    "Update semua software"
+                ],
+                correct: 2
+            }
+        ];
+
+        // Page Navigation
+        function showPage(page) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            
+            // Show selected page
+            document.getElementById(`page-${page}`).classList.remove('hidden');
+            
+            // Update navigation buttons
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            document.getElementById(`btn-${page}`).classList.remove('bg-gray-200', 'text-gray-700');
+            document.getElementById(`btn-${page}`).classList.add('bg-indigo-600', 'text-white');
+            
+            currentPage = page;
+        }
+
+        // Simulation Functions
+        function selectTool(tool) {
+            selectedTool = tool;
+            
+            // Update tool selection UI
+            document.querySelectorAll('[id^="tool-"]').forEach(btn => {
+                btn.classList.remove('border-blue-500', 'bg-blue-50');
+                btn.classList.add('border-gray-300', 'bg-white');
+            });
+            document.getElementById(`tool-${tool}`).classList.remove('border-gray-300', 'bg-white');
+            document.getElementById(`tool-${tool}`).classList.add('border-blue-500', 'bg-blue-50');
+            
+            // Show test results
+            showTestResults(tool);
+            updateTestingSteps(tool);
+        }
+
+        function showTestResults(tool) {
+            const resultsDiv = document.getElementById('test-results');
+            let results = '';
+            
+            switch(tool) {
+                case 'cable':
+                    results = `
+                        <div class="bg-white rounded-lg p-4 border-l-4 border-red-500">
+                            <h4 class="font-bold text-red-700">Cable Test - PC3</h4>
+                            <ul class="text-sm mt-2 space-y-1">
+                                <li>✗ Continuity: GAGAL (Pin 3,6)</li>
+                                <li>✗ Wire Map: SALAH URUTAN</li>
+                                <li>✓ Length: 15m (Normal)</li>
+                                <li>✗ Status: KABEL RUSAK</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border-l-4 border-green-500">
+                            <h4 class="font-bold text-green-700">Cable Test - PC1 & PC2</h4>
+                            <ul class="text-sm mt-2 space-y-1">
+                                <li>✓ Continuity: OK</li>
+                                <li>✓ Wire Map: OK</li>
+                                <li>✓ Length: 12m, 18m</li>
+                                <li>✓ Status: NORMAL</li>
+                            </ul>
+                        </div>
+                    `;
+                    break;
+                case 'network':
+                    results = `
+                        <div class="bg-white rounded-lg p-4 border-l-4 border-yellow-500">
+                            <h4 class="font-bold text-yellow-700">Network Analysis</h4>
+                            <ul class="text-sm mt-2 space-y-1">
+                                <li>• Bandwidth: 85% utilized</li>
+                                <li>• Latency: 15ms (Normal)</li>
+                                <li>• Packet Loss: 2% (Tinggi)</li>
+                                <li>• Collision: Terdeteksi pada port 3</li>
+                            </ul>
+                        </div>
+                    `;
+                    break;
+                case 'wifi':
+                    results = `
+                        <div class="bg-white rounded-lg p-4 border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-700">WiFi Analysis</h4>
+                            <ul class="text-sm mt-2 space-y-1">
+                                <li>• Signal Strength: -45dBm (Baik)</li>
+                                <li>• Channel: 6 (2.4GHz)</li>
+                                <li>• Interference: Rendah</li>
+                                <li>• Throughput: 54Mbps</li>
+                            </ul>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            resultsDiv.innerHTML = results;
+            
+            // Show solution after testing
+            setTimeout(() => {
+                showSolution();
+            }, 2000);
+        }
+
+        function updateTestingSteps(tool) {
+            const steps = document.getElementById('testing-steps');
+            const stepDivs = steps.querySelectorAll('div');
+            
+            stepDivs[0].querySelector('div').classList.remove('bg-gray-300');
+            stepDivs[0].querySelector('div').classList.add('bg-green-500', 'text-white');
+            stepDivs[0].querySelector('span').classList.remove('text-gray-600');
+            stepDivs[0].querySelector('span').classList.add('text-green-700', 'font-medium');
+            
+            setTimeout(() => {
+                stepDivs[1].querySelector('div').classList.remove('bg-gray-300');
+                stepDivs[1].querySelector('div').classList.add('bg-green-500', 'text-white');
+                stepDivs[1].querySelector('span').classList.remove('text-gray-600');
+                stepDivs[1].querySelector('span').classList.add('text-green-700', 'font-medium');
+            }, 1000);
+            
+            setTimeout(() => {
+                stepDivs[2].querySelector('div').classList.remove('bg-gray-300');
+                stepDivs[2].querySelector('div').classList.add('bg-green-500', 'text-white');
+                stepDivs[2].querySelector('span').classList.remove('text-gray-600');
+                stepDivs[2].querySelector('span').classList.add('text-green-700', 'font-medium');
+            }, 2000);
+        }
+
+        function showSolution() {
+            const solutionSection = document.getElementById('solution-section');
+            const solutionContent = document.getElementById('solution-content');
+            
+            solutionContent.innerHTML = `
+                <div class="space-y-4">
+                    <div class="bg-white rounded-lg p-4 border-l-4 border-purple-500">
+                        <h4 class="font-bold text-purple-700 mb-2">🔧 Masalah Teridentifikasi:</h4>
+                        <p class="text-sm">Kabel UTP menuju PC3 mengalami kerusakan pada pin 3 dan 6, serta urutan kabel yang salah (wire map error).</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border-l-4 border-green-500">
+                        <h4 class="font-bold text-green-700 mb-2">✅ Solusi:</h4>
+                        <ol class="text-sm space-y-1 list-decimal list-inside">
+                            <li>Ganti kabel UTP yang rusak dengan kabel baru</li>
+                            <li>Pastikan crimping mengikuti standar T568A atau T568B</li>
+                            <li>Test ulang menggunakan cable tester</li>
+                            <li>Verifikasi koneksi dengan ping test</li>
+                        </ol>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border-l-4 border-blue-500">
+                        <h4 class="font-bold text-blue-700 mb-2">📋 Pencegahan:</h4>
+                        <ul class="text-sm space-y-1 list-disc list-inside">
+                            <li>Lakukan pengujian berkala setiap 6 bulan</li>
+                            <li>Gunakan cable management yang baik</li>
+                            <li>Hindari tekukan kabel yang berlebihan</li>
+                            <li>Dokumentasikan hasil pengujian</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            
+            solutionSection.classList.remove('hidden');
+            solutionSection.classList.add('slide-in');
+        }
+
+        // Quiz Functions
+        async function loadQuizSettings() {
+            try {
+                console.log('Loading quiz settings from Google Sheets...');
+                const response = await fetch(APPS_SCRIPT_URL);
+                const data = await response.json();
+                
+                if (data.password_quiz) {
+                    quizPassword = data.password_quiz;
+                }
+                if (data.time_limit_question) {
+                    timeLimit = parseInt(data.time_limit_question);
+                }
+                
+                console.log('Quiz settings loaded:', { password: quizPassword, timeLimit: timeLimit });
+            } catch (error) {
+                console.log('Error loading quiz settings, using defaults:', error);
+            }
+        }
+
+        function startQuiz() {
+            const name = document.getElementById('student-name').value.trim();
+            const password = document.getElementById('quiz-password').value;
+            
+            if (!name) {
+                alert('Silakan masukkan nama Anda');
+                return;
+            }
+            
+            if (password !== quizPassword) {
+                alert('Password quiz salah!');
+                return;
+            }
+            
+            // Initialize quiz
+            document.getElementById('quiz-login').classList.add('hidden');
+            document.getElementById('quiz-content').classList.remove('hidden');
+            document.getElementById('quiz-student-name').textContent = name;
+            
+            currentQuestion = 0;
+            quizAnswers = new Array(quizQuestions.length).fill(null);
+            quizStartTime = new Date();
+            
+            showQuestion();
+            startQuizTimer();
+        }
+
+        function showQuestion() {
+            const question = quizQuestions[currentQuestion];
+            document.getElementById('question-text').textContent = question.question;
+            document.getElementById('question-counter').textContent = `${currentQuestion + 1}/${quizQuestions.length}`;
+            
+            const optionsDiv = document.getElementById('question-options');
+            optionsDiv.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'w-full p-3 text-left border-2 border-gray-300 rounded-lg hover:border-blue-500 transition-colors';
+                button.innerHTML = `<span class="font-medium">${String.fromCharCode(65 + index)}.</span> ${option}`;
+                button.onclick = () => selectAnswer(index);
+                
+                if (quizAnswers[currentQuestion] === index) {
+                    button.classList.remove('border-gray-300');
+                    button.classList.add('border-blue-500', 'bg-blue-50');
+                }
+                
+                optionsDiv.appendChild(button);
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentQuestion === 0;
+            document.getElementById('next-btn').textContent = currentQuestion === quizQuestions.length - 1 ? 'Selesai' : 'Selanjutnya →';
+        }
+
+        function selectAnswer(answerIndex) {
+            quizAnswers[currentQuestion] = answerIndex;
+            
+            // Update UI
+            document.querySelectorAll('#question-options button').forEach((btn, index) => {
+                btn.classList.remove('border-blue-500', 'bg-blue-50');
+                btn.classList.add('border-gray-300');
+                
+                if (index === answerIndex) {
+                    btn.classList.remove('border-gray-300');
+                    btn.classList.add('border-blue-500', 'bg-blue-50');
+                }
+            });
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+                startQuestionTimer();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                showQuestion();
+                startQuestionTimer();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function startQuizTimer() {
+            startQuestionTimer();
+        }
+
+        function startQuestionTimer() {
+            clearInterval(quizTimer);
+            let timeLeft = timeLimit;
+            
+            quizTimer = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                document.getElementById('quiz-timer').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    // Auto move to next question
+                    if (currentQuestion < quizQuestions.length - 1) {
+                        nextQuestion();
+                    } else {
+                        finishQuiz();
+                    }
+                }
+                timeLeft--;
+            }, 1000);
+        }
+
+        function finishQuiz() {
+            clearInterval(quizTimer);
+            
+            // Calculate score
+            let correctAnswers = 0;
+            quizAnswers.forEach((answer, index) => {
+                if (answer === quizQuestions[index].correct) {
+                    correctAnswers++;
+                }
+            });
+            
+            const score = Math.round((correctAnswers / quizQuestions.length) * 100);
+            const endTime = new Date();
+            const duration = Math.round((endTime - quizStartTime) / 1000);
+            
+            // Show results
+            document.getElementById('quiz-content').classList.add('hidden');
+            document.getElementById('quiz-results').classList.remove('hidden');
+            document.getElementById('final-score').textContent = `${score}/100`;
+            
+            // Set emoji and message based on score
+            let emoji, message;
+            if (score >= 90) {
+                emoji = '🏆';
+                message = 'Luar biasa! Anda menguasai materi dengan sangat baik!';
+            } else if (score >= 80) {
+                emoji = '🎯';
+                message = 'Bagus! Pemahaman Anda sudah cukup baik!';
+            } else if (score >= 70) {
+                emoji = '👍';
+                message = 'Cukup baik, tapi masih bisa ditingkatkan!';
+            } else {
+                emoji = '📚';
+                message = 'Perlu belajar lebih giat lagi. Jangan menyerah!';
+            }
+            
+            document.getElementById('score-emoji').textContent = emoji;
+            document.getElementById('score-message').textContent = message;
+            
+            // Save to Google Sheets
+            saveQuizResult(score, duration);
+        }
+
+        async function saveQuizResult(score, duration) {
+            try {
+                const studentName = document.getElementById('quiz-student-name').textContent;
+                const now = new Date();
+                const date = now.toLocaleDateString('id-ID');
+                const time = now.toLocaleTimeString('id-ID');
+                
+                console.log('Saving to Google Sheets:', {
+                    nama: studentName,
+                    skor: score,
+                    tanggal: date,
+                    waktu: time
+                });
+                
+                // Create form data for Google Apps Script
+                const formData = new FormData();
+                formData.append('nama', studentName);
+                formData.append('skor', score);
+                formData.append('tanggal', date);
+                formData.append('waktu', time);
+                
+                const response = await fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                if (result.success) {
+                    console.log('Quiz result saved successfully!');
+                    // Show success message to user
+                    setTimeout(() => {
+                        alert('Hasil quiz berhasil disimpan!');
+                    }, 1000);
+                } else {
+                    console.error('Error saving quiz result:', result.error);
+                    alert('Gagal menyimpan hasil quiz. Silakan coba lagi.');
+                }
+                
+            } catch (error) {
+                console.error('Error saving quiz result:', error);
+                alert('Terjadi kesalahan saat menyimpan hasil quiz.');
+            }
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('quiz-login').classList.remove('hidden');
+            document.getElementById('student-name').value = '';
+            document.getElementById('quiz-password').value = '';
+            currentQuestion = 0;
+            quizAnswers = [];
+            clearInterval(quizTimer);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuizSettings();
+        });
+    </script>
+
+    <!-- Google Apps Script Integration Instructions -->
+    <div class="hidden">
+        <!-- 
+        GOOGLE APPS SCRIPT SETUP:
+        
+        1. Buat Google Spreadsheet baru
+        2. Buat 2 sheet:
+           - Sheet 1: "Pengaturan" dengan kolom: password_quiz, time_limit_question
+           - Sheet 2: "Results" dengan kolom: Nama, Skor, Tanggal, Waktu
+        
+        3. Buka Apps Script (Extensions > Apps Script)
+        4. Paste kode berikut:
+        
+        function doPost(e) {
+          try {
+            const nama = e.parameter.nama;
+            const skor = e.parameter.skor;
+            const tanggal = e.parameter.tanggal;
+            const waktu = e.parameter.waktu;
+            
+            const ss = SpreadsheetApp.getActiveSpreadsheet();
+            const resultsSheet = ss.getSheetByName('Results');
+            
+            resultsSheet.appendRow([nama, skor, tanggal, waktu]);
+            
+            return ContentService
+              .createTextOutput(JSON.stringify({success: true}))
+              .setMimeType(ContentService.MimeType.JSON);
+              
+          } catch (error) {
+            return ContentService
+              .createTextOutput(JSON.stringify({success: false, error: error.toString()}))
+              .setMimeType(ContentService.MimeType.JSON);
+          }
+        }
+        
+        function doGet() {
+          try {
+            const ss = SpreadsheetApp.getActiveSpreadsheet();
+            const settingsSheet = ss.getSheetByName('Pengaturan');
+            const settings = settingsSheet.getRange('A2:B2').getValues()[0];
+            
+            return ContentService
+              .createTextOutput(JSON.stringify({
+                password_quiz: settings[0],
+                time_limit_question: settings[1]
+              }))
+              .setMimeType(ContentService.MimeType.JSON);
+              
+          } catch (error) {
+            return ContentService
+              .createTextOutput(JSON.stringify({
+                password_quiz: 'jaringan123',
+                time_limit_question: 30
+              }))
+              .setMimeType(ContentService.MimeType.JSON);
+          }
+        }
+        
+        5. Deploy sebagai Web App dengan akses "Anyone"
+        6. Copy URL dan ganti di kode JavaScript di atas
+        -->
+    </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974eefb95565b15c',t:'MTc1NjE2NTI0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
